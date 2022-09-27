@@ -1,7 +1,8 @@
 //---------importation mongoose----------------
 //avec
-const mongoose = require("mongoose");
-//pluging de moogose validator prévalide les informations avant de les enregistrer
+const mongoose = require("mongoose");//création d'un model user avec mongoose
+
+//pluging de moogose validator prévalide les informations avant de les enregistrer 
 const uniqueValidator = require("mongoose-unique-validator");
 
 //---------creation schema du schema de validation---------------
@@ -18,5 +19,5 @@ userSchema.plugin(uniqueValidator);
 
 //-------Exportation du shéma sous forme de model en utilisant la fonctionmodel()
 module.exports = mongoose.model("User", userSchema);
-
+//on utilise la fonction modèle de mongoose, le modéle va s'appeler User, et on lui passer userSchema comme schéma de donn
 
