@@ -18,7 +18,7 @@ dotenv.config();
 
 //------Importation de routes vers l'utilisateur et les sauces (pour enregistrer les routes app.use vers le front) -------//
 //parcours des routes 
-const sauceRoutes = require("./routes/sauces.js");
+const sauceRoutes = require("./routes/sauce");
 //parcours des utilisateurs 
 const userRoutes = require("./routes/user");
 
@@ -27,7 +27,7 @@ const app = express();
 
 
 //---connection Base de données Mongoose------//
-mongoose.connect('mongodb+srv://Piiquanteprojet2209:test@cluster0.owwqvaf.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://Piiquanteprojet2209:teste@cluster0.owwqvaf.mongodb.net/?retryWrites=true&w=majority',
 { useNewUrlParser: true,
   useUnifiedTopology: true })
 .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -42,14 +42,9 @@ app.use(express.json())
 //qui permet aux 2 ports front et end de communiquer entre eux
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*"); // lorigin qui a le droit dacceder cest tout le monde"*"// permet d'accéder a l'API depuis n'importe quelle origine
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
+    res.setHeader("Access-Control-Allow-Headers","Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
     ); // autorisation d'utiliser certains headers sur l'objet requête
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET, POST, PUT, DELETE, PATCH, OPTIONS"
-    ); // permet d'envoyer des requêtes avec ces méthodes
+    res.setHeader("Access-Control-Allow-Methods","GET, POST, PUT, DELETE, PATCH, OPTIONS"); // permet d'envoyer des requêtes avec ces méthodes
     next(); // passe l'exécution au middleware suivant
   });
 
