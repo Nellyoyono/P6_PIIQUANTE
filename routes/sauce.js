@@ -1,21 +1,19 @@
-//---imports --------
+//---imports
 const express = require("express");
 
-// creation d'un router avec la methode router d'express
+//---creation d'un router avec la methode router d'express
 const router = express.Router();
 
-//importation du controlleur "sauce"const sauceCtrl = require('../controllers/sauce');
+//---importation du controlleur "sauce"
 const sauceCtrl = require("../controllers/sauce");
 
-//importation du middleware d'authentification
+/----importation du middleware d'authentification
 const auth = require('../middleware/auth');
 
-//importation du middleware "multer"
+//---importation du middleware "multer"
 const multer = require('../middleware/multer-config');
 
-// Routes ((CRUD: create/read/update/delete)----)
-
-
+// Routes--CRUD: create/read/update/delete)
 router.get('/', auth, sauceCtrl.getAllSauce);//afficher toutes les sauces
 router.get('/:id', auth, sauceCtrl.getOneSauce);//afficher une sauce par son id
 router.put('/:id', auth, multer, sauceCtrl.modifySauce);//modifier une sauce, seul l'utilisateur créé la sauce peut la modifier, multer pour les images entrants
