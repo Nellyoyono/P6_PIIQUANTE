@@ -1,4 +1,4 @@
-//--------import-----------
+//--------imports-----------
 
 // package de chiffrement bcrypt
 const bcrypt = require("bcrypt"); 
@@ -8,7 +8,7 @@ const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 
 //--------Fonction sign up inscription des utilisateurs--------
-//fonction sign up pour enregistrement des utilisateurs 
+
 exports.signup = (req, res, next) => {
     bcrypt
     //hashage 10 fois du mot de passe avec bcrypt
@@ -32,9 +32,8 @@ exports.signup = (req, res, next) => {
     //envoie l'erreur 500 dans un objet
     .catch((error) => res.status(500).json({ error }));
 };
-//------------MIDDLEWARE POUR CONNECTER LES UTILISATEURS EXISTANTS------------
-//fonction login permet aux utilisateurs existants de se connecter
 
+//fonction login permet aux utilisateurs existants de se connecter
 exports.login = (req, res, next) => {
     // méthode findOne qui permet de vérifier si l'user existe et que c'est bien son mot de passe 
     User.findOne({ email: req.body.email })
