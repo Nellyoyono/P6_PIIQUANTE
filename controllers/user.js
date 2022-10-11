@@ -7,7 +7,7 @@ const User = require("../models/user");
 //package "jsonwebtoken
 const jwt = require("jsonwebtoken");
 
-//--------Fonction sign up inscription des utilisateurs--------
+//--------Fonction sign up inscription des utilisateurs
 
 exports.signup = (req, res, next) => {
     bcrypt
@@ -33,7 +33,7 @@ exports.signup = (req, res, next) => {
     .catch((error) => res.status(500).json({ error }));
 };
 
-//fonction login permet aux utilisateurs existants de se connecter
+//-----fonction login permet aux utilisateurs existants de se connecter
 exports.login = (req, res, next) => {
     // méthode findOne qui permet de vérifier si l'user existe et que c'est bien son mot de passe 
     User.findOne({ email: req.body.email })
