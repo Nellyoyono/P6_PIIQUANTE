@@ -1,7 +1,7 @@
 //---------importation mongoose
 const mongoose = require("mongoose");//création d'un model user avec mongoose
 
-//pluging de moogose validator 
+//----------pluging de moogose validator 
 const uniqueValidator = require("mongoose-unique-validator");
 
 //---------creation schema du schema de validation
