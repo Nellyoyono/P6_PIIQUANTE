@@ -5,10 +5,9 @@ const Sauce = require("../models/sauce");
 // importer le package "file system" qui permet de modifer le system des fichiers
 const fs = require("fs");
 
-//-------------LES 4 ETATS DU CRUD---------------//
 
-//-----afficher toutes les Sauces
-//Lecture de toutes les sauces dans la base de données (Get)
+
+//-----Afficher toutes les Sauces
 
 //Utilisation de la méthode find() du modèle Mongoose qui renvoit un tableau de toutes les Sauces de notre base de données
 
@@ -21,8 +20,8 @@ exports.getAllSauce = (req, res, next) => {
     });
 };
 
-  //-------- Afficher une Sauce
-  // Lecture d'une sauce avec son ID (Get/:id)
+//-------- Afficher une Sauce
+  
 exports.getOneSauce = (req, res, rest) => {
     //méthode find() permet de renvoyer un tableau contenant tous les sauce dans la base de données
     Sauce.findOne({ _id: req.params.id })
@@ -50,7 +49,7 @@ exports.modifySauce = (req, res, next) => {
   
       .catch((error) => res.status(400).json({ error }));
   };
-  //----------- Supprimer une Sauce
+ //----------- Supprimer une Sauce
   exports.deleteSauce = (req, res, next) => {
     //Récupération de l'objet à supprimé avec 'findOne' et id
     Sauce.findOne({ _id: req.params.id })//avant de modifier l'objet, on va le chercher pour obtenir l'url de l'image
@@ -66,14 +65,6 @@ exports.modifySauce = (req, res, next) => {
   };
 
 //----------gestion des likes et dislike (Post/:id/like)----
-
-//***on appelle les like avec request et result
-//identification de la sauce a liker avec _id et params.id 
-//et pour cibler la sauce on va utiliser findOne() que ce ne soit pas toutes les sauces 
-//utilisant des Promises avec les fonctions .then et .catch// */Pour le dislike on va utiliser -1 
-//Pour le dislike , la on va faire -1 dans le tableau de like en fonction de son id et + 1 pour les like on va utiliser +1.
-//Maintenant si l’utilisateur se trompe cest a dire quil fait jaime pas alors quil aime la le like est égal a 0
-//Suppression dans le tableau des likes en fonction de son id 
 
 
 exports.likeSauce = (req, res, next) => {
@@ -97,7 +88,8 @@ exports.likeSauce = (req, res, next) => {
 
 
 //---retirer like ou dislike 
-  //Cas n°2: L'utilisateur annule son choix. Il annule son like donc on décremente de 1 son choix. Il annule un dislike donc on décremente de 1 son choix.
+//Cas n°3: L'utilisateur annule son choix. Il annule son like donc on décremente de 1 son choix.
+//Il annule un dislike donc on décremente de 1 son choix.
     } else { 
       Sauce.findOne({ _id: req.params.id })
       .then( sauce => {
@@ -153,7 +145,3 @@ exports.createSauce = (req, res, next) => {
 
 
 
-
-
-   //const sauceId = req.params.id;//on recupere l'id de la sauce
-  //const userId = req.body.userId; // on recupère l'id de user 
