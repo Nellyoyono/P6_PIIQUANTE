@@ -1,4 +1,4 @@
-//------import------
+//------imports
 //importation de express pour l'enregistrement et la connexion des utilisateurs
 const express = require("express");
 //importation du router avec la méthode mise à disposition par Express
@@ -6,7 +6,7 @@ const router = express.Router();
 //chemin vers User controllers
 const userCtrl = require("../controllers/user");
 
-//---------CREATION DES ROUTES --------------//
+//----création des routes
 //envoie de l'adresse mail
 router.post("/signup", userCtrl.signup);
 //envoie du mot de passe
