@@ -84,5 +84,3 @@ module.exports = app;
 
 
 
-//nettoyer les données fournies par l'utilisateur pour empêcher l'injection d'opérateur MongoDB.
-//const mongoSanitize = require("express-mongo-sanitize");
