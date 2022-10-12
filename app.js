@@ -35,7 +35,6 @@ mongoose.connect('mongodb+srv://Piiquanteprojet2209:teste@cluster0.owwqvaf.mongo
 
 
 //gérer les requêtes 'POST' venant du frontend : besoin d'extraire le corps JSON des requêtes
-//Express prend les requêtes qui ont comme Content-Type application/json et met à disposition leur body directement sur l'objet req
 app.use(express.json())
 
 // middelware de configuration de CORS
