@@ -29,7 +29,7 @@ exports.signup = (req, res, next) => {
         )
         .catch((error) => res.status(400).json({ error }));
     })
-    //envoie l'erreur 500 dans un objet
+//envoie l'erreur 500 dans un objet
     .catch((error) => res.status(500).json({ error }));
 };
 
