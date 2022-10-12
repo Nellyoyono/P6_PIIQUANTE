@@ -16,7 +16,7 @@ dotenv.config();
 
 
 
-//------Importation de routes vers l'utilisateur et les sauces (pour enregistrer les routes app.use vers le front) -------//
+//------Importation de routes vers l'utilisateur et les sauces 
 //parcours des routes 
 const sauceRoutes = require("./routes/sauce");
 //parcours des utilisateurs 
@@ -38,7 +38,7 @@ mongoose.connect('mongodb+srv://Piiquanteprojet2209:teste@cluster0.owwqvaf.mongo
 //Express prend les requêtes qui ont comme Content-Type application/json et met à disposition leur body directement sur l'objet req
 app.use(express.json())
 
-// middelware de configuration de CORS----//
+// middelware de configuration de CORS
 //qui permet aux 2 ports front et end de communiquer entre eux
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*"); // lorigin qui a le droit dacceder cest tout le monde"*"// permet d'accéder a l'API depuis n'importe quelle origine
@@ -49,7 +49,7 @@ app.use((req, res, next) => {
   });
 
 
-//-----LES ROUTES D'API ---//
+//-----les routes d'API
 
 //route pour accéder aux images du dossier image
 app.use("/images", express.static(path.join(__dirname, "images")));
