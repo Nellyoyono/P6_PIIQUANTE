@@ -26,7 +26,7 @@ const userRoutes = require("./routes/user");
 const app = express();
 
 
-//---connection Base de données Mongoose------//
+//---connection Base de données Mongoose
 mongoose.connect('mongodb+srv://Piiquanteprojet2209:teste@cluster0.owwqvaf.mongodb.net/?retryWrites=true&w=majority',
 { useNewUrlParser: true,
   useUnifiedTopology: true })
