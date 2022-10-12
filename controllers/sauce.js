@@ -1,4 +1,4 @@
-//---imports---------
+//---imports
 
 //on importe notre nouveau modèle mongoose pour l'utiliser dans l'application
 const Sauce = require("../models/sauce");
@@ -7,7 +7,7 @@ const fs = require("fs");
 
 
 
-//-----Afficher toutes les Sauces
+//-----afficher toutes les sauces
 
 //Utilisation de la méthode find() du modèle Mongoose qui renvoit un tableau de toutes les Sauces de notre base de données
 
@@ -20,7 +20,7 @@ exports.getAllSauce = (req, res, next) => {
     });
 };
 
-//-------- Afficher une Sauce
+//-------afficher une Sauce
   
 exports.getOneSauce = (req, res, rest) => {
     //méthode find() permet de renvoyer un tableau contenant tous les sauce dans la base de données
@@ -32,7 +32,7 @@ exports.getOneSauce = (req, res, rest) => {
   };
 
 
-  //--------- Modifier une Sauce
+  //--------modifier une sauce
 exports.modifySauce = (req, res, next) => {
     //création d'un objet en demande si il y a une image à modifier
     const sauceObject = req.file? {
@@ -49,7 +49,7 @@ exports.modifySauce = (req, res, next) => {
   
       .catch((error) => res.status(400).json({ error }));
   };
- //----------- Supprimer une Sauce
+ //-----------supprimer une Sauce
   exports.deleteSauce = (req, res, next) => {
     //Récupération de l'objet à supprimé avec 'findOne' et id
     Sauce.findOne({ _id: req.params.id })//avant de modifier l'objet, on va le chercher pour obtenir l'url de l'image
@@ -64,12 +64,12 @@ exports.modifySauce = (req, res, next) => {
       .catch((error) => res.status(400).json({ error }));
   };
 
-//----------gestion des likes et dislike (Post/:id/like)----
+//---------gestion des likes et dislike (Post/:id/like)
 
 
 exports.likeSauce = (req, res, next) => {
 
-//case 1 Si l'utilisateur like une sauce. On incrémente de +1 pour le like
+//case n°1: Si l'utilisateur like une sauce. On incrémente de +1 pour le like
   if (req.body.like === 1) { 
     Sauce.updateOne({ _id: req.params.id}, //on recherche la sauce avec le _id présent dans la requête
     { $inc: { likes: +1 },//on incrémente de 1 la valeur de likes
@@ -117,7 +117,7 @@ exports.likeSauce = (req, res, next) => {
   }
 };
 
-//-----Creation de l'objet d'une Sauce
+//-----creation de l'objet d'une Sauce
 exports.createSauce = (req, res, next) => {
     //converti en json et je parse l'objet
     const sauceObject = JSON.parse(req.body.sauce);
