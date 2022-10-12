@@ -9,7 +9,6 @@ const MIME_TYPES = {
 };
 
 //fonction "diskStorage" pour les images téléchargées par le user dans le disque
-//la config de multer nécessite deux arguments : destination + filename prenant prenant 3 params chacun
 const storage = multer.diskStorage({
 //fonction "destination" d'enregistrement des fichiers dans le dossier images qui prend 3 arguments (requète, file et un callback)
 destination: (req, file, callback) => {
@@ -34,7 +33,4 @@ callback(null, name + Date.now() + "." + extension);
 });
 
 //appel de la méthode multer et on lui passe storage
-//j'exporte multer en appelant le module storage
-// .single signifie que c'est un fichier unique et non un groupe
-// "image" pour dire à multer qu'il s'agit d'un fichier image uniquement
 module.exports = multer({ storage: storage }).single("image"); 
