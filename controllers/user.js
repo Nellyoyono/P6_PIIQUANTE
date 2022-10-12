@@ -1,4 +1,4 @@
-//--------imports-----------
+//--------imports
 
 // package de chiffrement bcrypt
 const bcrypt = require("bcrypt"); 
@@ -7,7 +7,7 @@ const User = require("../models/user");
 //package "jsonwebtoken
 const jwt = require("jsonwebtoken");
 
-//--------Fonction sign up inscription des utilisateurs
+//--------fonction sign up inscription des utilisateurs
 
 exports.signup = (req, res, next) => {
     bcrypt
