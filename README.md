@@ -29,7 +29,7 @@ Le serveur doit fonctionner sur "localhost" avec le port par défaut "3000".
 Le frontend présente la partie utilisateur de l'application. Il doit être lancé avec un serveur local , et nécessite que le backend soit lancé lui aussi pour fonctionner correctement.
 Pour faire fonctionner le projet, Exécutez npm run start
 
-# Development server
+# Serveur
 Démarrer ng serve pour avoir accès au serveur de développement. 
 Rendez-vous sur http://localhost:4200/. 
 L'application va se recharger automatiquement si vous modifiez un fichier source.
